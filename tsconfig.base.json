@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@scrollyvue/common": ["libs/scrollyvue/common/src/index.ts"],
+      "@scrollyvue/composeable": ["libs/scrollyvue/composeable/src/index.ts"],
+      "@scrollyvue/scrollyvue-feature": [
+        "libs/scrollyvue/feature/src/index.ts"
+      ],
+      "@scrollyvue/scrollyvue-ui": ["libs/scrollyvue/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

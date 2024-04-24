@@ -1,0 +1,24 @@
+{
+  "name": "scrollyvue-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/scrollyvue-backend/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "scrollyvue-backend:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "scrollyvue-backend:build:development"
+        },
+        "production": {
+          "buildTarget": "scrollyvue-backend:build:production"
+        }
+      }
+    }
+  }
+}

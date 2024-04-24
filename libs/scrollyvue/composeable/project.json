@@ -1,0 +1,9 @@
+{
+  "name": "composeable",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/scrollyvue/composeable/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project composeable --web",
+  "targets": {}
+}
