@@ -1,15 +1,14 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{ teaser: string }>(), { teaser: '' });
+const props = withDefaults(defineProps<{ teaser: string, color?: string }>(), { teaser: '', color: 'black' });
 </script>
 
 <template>
-  <p>{{ props.teaser }}</p>
+  <p :style="{color: color}">{{ props.teaser }}</p>
 </template>
 
 <style scoped>
 p {
   align-self: center;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-bottom: 2em;
 }
 </style>

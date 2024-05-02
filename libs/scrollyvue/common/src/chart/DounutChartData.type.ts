@@ -1,5 +1,6 @@
-import { DounutChartDataset } from "./DounutChartDataset.type"
+import { DounutChartDataset } from './DounutChartDataset.type';
 
 export type DounutChartData = {
-  labels: string[], datasets: DounutChartDataset[]
-}
+  labels: string[],
+  datasets: DounutChartDataset[],
+};

@@ -1,12 +1,21 @@
 <!-- eslint-disable vue/require-v-for-key -->
 <script setup lang="ts">
-import { Section, type SectionText, type SectionQuote, type SectionChart, type BarChartData, type DounutChartData } from '@scrollyvue/common';
+import { type SectionText, type SectionQuote, type SectionChart, type BarChartData, type DounutChartData, Section } from '@scrollyvue/common';
 import { ScrollyvueUiTitle, ScrollyvueUiText, ScrollyvueUiQuote } from '@scrollyvue/scrollyvue-ui';
 import { default as BarChart } from '../bar-chart/BarChart.vue';
 import { default as DounutChart } from '../dounut-chart/DounutChart.vue';
 
+import { ref, watch } from 'vue'
+import { useElementVisibility } from '@vueuse/core'
 
-const props = defineProps<{sectionNumber: number, section: Section}>();
+const props = defineProps<{ sectionNumber: number, section: Section }>();
+
+const target = ref(null)
+const targetIsVisible = useElementVisibility(target);
+
+watch(targetIsVisible, () => {
+  console.log(`${props.sectionNumber} ${props.section.title} visible: ${targetIsVisible.value}`);
+})
 
 const isSectionText = (content: any): content is SectionText => {
   return !!content.text;
@@ -23,13 +32,21 @@ const isSectionDounutChart = (content: any): content is SectionChart => {
 </script>
 
 <template>
-  <section>
-    <ScrollyvueUiTitle v-if="props.sectionNumber !== 1" :title="props.section.title" :titleType="'Section'"/>
+  <section ref="target">
+    <ScrollyvueUiTitle v-if="props.sectionNumber !== 1" :title="props.section.title" :titleType="'Section'" />
     <div class="section-content" v-for="n in props.section.content?.length" :key="n">
-      <ScrollyvueUiText v-if="props.section.content && isSectionText(props.section.content[n-1])" :text="(props.section.content[n-1] as SectionText).text" :firstParagraph="props.sectionNumber === 1 && n === 1"/>
-      <ScrollyvueUiQuote v-if="props.section.content && isSectionQuote(props.section.content[n-1])" :author="(props.section.content[n-1] as SectionQuote).author" :quote="(props.section.content[n-1] as SectionQuote).quote"/>
-      <BarChart v-if="props.section.content && isSectionBarChart(props.section.content[n-1])" :title="(props.section.content[n-1] as SectionChart).title" :data="(props.section.content[n-1] as SectionChart).data as BarChartData"/>
-      <DounutChart v-if="props.section.content && isSectionDounutChart(props.section.content[n-1])" :title="(props.section.content[n-1] as SectionChart).title" :data="(props.section.content[n-1] as SectionChart).data as DounutChartData"/>
+      <ScrollyvueUiText v-if="props.section.content && isSectionText(props.section.content[n - 1])"
+        :text="(props.section.content[n - 1] as SectionText).text"
+        :firstParagraph="props.sectionNumber === 1 && n === 1" />
+      <ScrollyvueUiQuote v-if="props.section.content && isSectionQuote(props.section.content[n - 1])"
+        :author="(props.section.content[n - 1] as SectionQuote).author"
+        :quote="(props.section.content[n - 1] as SectionQuote).quote" />
+      <BarChart v-if="props.section.content && isSectionBarChart(props.section.content[n - 1])"
+        :title="(props.section.content[n - 1] as SectionChart).title"
+        :data="(props.section.content[n - 1] as SectionChart).data as BarChartData" />
+      <DounutChart v-if="props.section.content && isSectionDounutChart(props.section.content[n - 1])"
+        :title="(props.section.content[n - 1] as SectionChart).title"
+        :data="(props.section.content[n - 1] as SectionChart).data as DounutChartData" />
     </div>
   </section>
 </template>

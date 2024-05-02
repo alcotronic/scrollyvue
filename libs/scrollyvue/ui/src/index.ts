@@ -1,3 +1,4 @@
+export { default as Blockquote } from './quote/Blockquote.vue';
 export { default as ScrollyvueUiKicker } from './kicker/Kicker.vue';
 export { default as ScrollyvueUiTeaser } from './teaser/Teaser.vue';
 export { default as ScrollyvueUiChart } from './chart/Chart.vue';

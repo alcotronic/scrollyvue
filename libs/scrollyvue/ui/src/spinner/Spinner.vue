@@ -15,14 +15,21 @@
 </script>
 
 <template>
-  <svg class="svgbg" width="250" height="250">
-    <g :transform="transformation">
-      <path d="M 125,25 A 100 100 0 0 0 125,225" 
-         fill="none" stroke="hsla(0,0%,50%,0.5)" stroke-width="50"/>
-      <!-- <path d="M 125,75 A 25 25 0 0 0 125,175" 
-         fill="hsla(0,0%,50%,0.5)" /> -->
-   </g>
-  </svg>
+  <div class="spinner">
+    <svg class="svgbg" viewBox="0 0 250 250">
+      <g :transform="transformation">
+        <path d="M 125,25 A 100 100 0 0 0 125,225" 
+          fill="none" stroke="#a351b1" stroke-width="50"/>
+        <path d="M 125,75 A 25 25 0 0 0 125,175" 
+          fill="#a351b1" />
+    </g>
+    </svg>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.spinner {
+  height: 100px;
+  width: 100px;
+}
+</style>

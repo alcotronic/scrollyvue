@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{ author: string, quote: string }>(), { quote: '' });
+const props = withDefaults(defineProps<{ quote: string, author: string }>(), { quote: '' });
 </script>
 
 <template>

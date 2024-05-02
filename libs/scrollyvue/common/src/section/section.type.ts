@@ -1,3 +1,4 @@
+import { ChartOptions } from "chart.js"
 import { BarChartData } from "../chart/BarChartData.type"
 import { DounutChartData } from "../chart/DounutChartData.type"
 
@@ -25,7 +26,8 @@ export type SectionImage = {
 export type SectionChart = {
   title: string,
   chartType: 'BarChart' | 'DounutChart',
-  data: BarChartData | DounutChartData
+  data: BarChartData | DounutChartData,
+  options?: ChartOptions<'bar'> | ChartOptions<'doughnut'>
 }
 
 export type SectionCharts = {
