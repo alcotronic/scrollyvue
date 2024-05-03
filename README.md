@@ -7,4 +7,5 @@ Experiment with vue3 in comparison to svelte.
 npm install
 
 ## Run
-npm run dev
+
+npx nx run scrollyvue:serve
