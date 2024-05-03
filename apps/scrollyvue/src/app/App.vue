@@ -35,7 +35,6 @@ const navigateToOverview = () => {
       <v-spacer/>
     </v-app-bar>
     <v-main class="d-flex flex-column align-center justify-center" style="min-height: 300px;">
-      <SvgFun/>
       <!-- <ScrollyvueFeatureMap/>
       <ScrollyvueFeatureArticles :articles="articles"></ScrollyvueFeatureArticles>
         <ScrollyvueFeatureArticle :article="articleData1"></ScrollyvueFeatureArticle> -->
